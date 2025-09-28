@@ -2,14 +2,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
 
 export default function PriceCalculator() {
@@ -23,11 +16,11 @@ export default function PriceCalculator() {
   }, [invites, duration]);
 
   return (
-    <Card>
-      <CardHeader>
+    <Card className="shadow-lg border transition-all duration-300 hover:shadow-xl">
+      <CardHeader className="bg-slate-50 rounded-t-lg">
         <CardTitle>Event Price Calculator</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-8">
+      <CardContent className="space-y-8 pt-6">
         <div className="space-y-2">
           <label className="text-sm font-medium">
             Number of Invites: {invites}
@@ -53,9 +46,9 @@ export default function PriceCalculator() {
           />
         </div>
       </CardContent>
-      <CardFooter className="mt-4 flex-col items-center rounded-lg bg-gray-100 p-4">
-        <p className="text-sm text-gray-600">Calculated Value</p>
-        <p className="text-4xl font-bold text-blue-600">
+      <CardFooter className="mt-4 flex-col items-center rounded-b-lg bg-gradient-to-br from-blue-500 to-blue-700 p-6 text-white">
+        <p className="text-sm opacity-80">Calculated Value</p>
+        <p className="text-4xl font-extrabold tracking-tight">
           ${calculatedValue.toLocaleString()}
         </p>
       </CardFooter>

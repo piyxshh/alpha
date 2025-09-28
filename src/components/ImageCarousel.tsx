@@ -2,42 +2,37 @@
 "use client";
 
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
 
-const images = [
-  '/images/car1.png',
-  '/images/car2.png',
-  '/images/car3.png',
-];
+interface ImageCarouselProps {
+  images: string[];
+  selectedIndex: number;
+}
 
-export default function ImageCarousel() {
+export default function ImageCarousel({ images, selectedIndex }: ImageCarouselProps) {
   return (
-    <Carousel className="w-full">
-      <CarouselContent>
-        {images.map((src, index) => (
-          <CarouselItem key={index}>
-            <Card>
-              <CardContent className="relative aspect-video p-0">
-                <Image
-                  src={src}
-                  alt={`Car image ${index + 1}`}
-                  fill
-                  className="rounded-lg object-cover"
-                />
-              </CardContent>
-            </Card>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious className="absolute left-4" />
-      <CarouselNext className="absolute right-4" />
-    </Carousel>
+    <Card>
+      <CardContent className="relative aspect-video p-0">
+        <AnimatePresence>
+          <motion.div
+            key={selectedIndex} // This key tells AnimatePresence when the component changes
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Image
+              src={images[selectedIndex]}
+              alt={`Car image ${selectedIndex + 1}`}
+              fill
+              className="rounded-lg object-cover"
+              priority // Add priority for faster loading of the main image
+            />
+          </motion.div>
+        </AnimatePresence>
+      </CardContent>
+    </Card>
   );
 }

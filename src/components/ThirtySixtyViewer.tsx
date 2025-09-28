@@ -8,16 +8,18 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { Camera } from 'lucide-react';
 
 export default function ThirtySixtyViewer() {
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline" className="w-full">
-          View 360°
+          <Camera className="mr-2 h-4 w-4" /> View 360°
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-4xl">
+      {/* CORRECTED: Changed max-w-4xl to max-w-7xl */}
+      <DialogContent className="max-w-7xl">
         <DialogHeader>
           <DialogTitle>360° Interactive View</DialogTitle>
           <DialogDescription>
@@ -25,10 +27,9 @@ export default function ThirtySixtyViewer() {
           </DialogDescription>
         </DialogHeader>
         <div className="relative mt-4 flex justify-center">
-          {/* Using a standard img tag for the GIF */}
-          <img 
-            src="/images/car-360.gif" 
-            alt="360 degree rotating view of the car" 
+          <img
+            src="/images/car-360.gif"
+            alt="360 degree rotating view of the car"
             className="rounded-md"
           />
         </div>
