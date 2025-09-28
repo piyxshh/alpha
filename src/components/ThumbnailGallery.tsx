@@ -1,4 +1,4 @@
-// src/components/ThumbnailGallery.tsx
+
 "use client";
 
 import Image from 'next/image';
@@ -29,7 +29,7 @@ export default function ThumbnailGallery({ images, currentIndex, onSelect }: Thu
               currentIndex === index ? 'scale-110' : 'scale-100'
             }`}
           />
-          {/* Overlay for selected state */}
+          
           <div
             className={`absolute inset-0 rounded-md border-2 transition-all duration-300 ${
               currentIndex === index

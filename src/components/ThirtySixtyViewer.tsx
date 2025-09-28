@@ -1,4 +1,4 @@
-// src/components/ThirtySixtyViewer.tsx
+
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -18,7 +18,7 @@ export default function ThirtySixtyViewer() {
           <Camera className="mr-2 h-4 w-4" /> View 360°
         </Button>
       </DialogTrigger>
-      {/* CORRECTED: Changed max-w-4xl to max-w-7xl */}
+      
       <DialogContent className="max-w-7xl">
         <DialogHeader>
           <DialogTitle>360° Interactive View</DialogTitle>

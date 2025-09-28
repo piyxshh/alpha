@@ -1,4 +1,4 @@
-// src/components/ImageCarousel.tsx
+
 "use client";
 
 import Image from 'next/image';
@@ -16,7 +16,7 @@ export default function ImageCarousel({ images, selectedIndex }: ImageCarouselPr
       <CardContent className="relative aspect-video p-0">
         <AnimatePresence>
           <motion.div
-            key={selectedIndex} // This key tells AnimatePresence when the component changes
+            key={selectedIndex} 
             className="absolute inset-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -28,7 +28,7 @@ export default function ImageCarousel({ images, selectedIndex }: ImageCarouselPr
               alt={`Car image ${selectedIndex + 1}`}
               fill
               className="rounded-lg object-cover"
-              priority // Add priority for faster loading of the main image
+              priority 
             />
           </motion.div>
         </AnimatePresence>
